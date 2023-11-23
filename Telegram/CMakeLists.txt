@@ -141,12 +141,12 @@ PRIVATE
     ayu/ui/boxes/edit_edited_mark.h
     ayu/ui/boxes/font_selector.cpp
     ayu/ui/boxes/font_selector.h
-    ayu/sync/ayu_sync_controller.cpp
-    ayu/sync/ayu_sync_controller.h
-    ayu/sync/models.h
-    ayu/sync/utils/ayu_pipe_wrapper.cpp
-    ayu/sync/utils/ayu_pipe_wrapper.h
-    ayu/sync/utils/process_utils.hpp
+    #    ayu/sync/ayu_sync_controller.cpp
+    #    ayu/sync/ayu_sync_controller.h
+    #    ayu/sync/models.h
+    #    ayu/sync/utils/ayu_pipe_wrapper.cpp
+    #    ayu/sync/utils/ayu_pipe_wrapper.h
+    #    ayu/sync/utils/process_utils.hpp
     ayu/messages/ayu_messages_controller.cpp
     ayu/messages/ayu_messages_controller.h
     ayu/libs/pipe.hpp
