@@ -40,7 +40,7 @@ Optional Depends ```"webkit2gtk: embedded browser features"
     "xdg-desktop-portal: desktop integration"```
 
 Build
-
+```
 git clone https://github.com/JustXLS/AyuGramDesktopWithoutNiggerSync.git
 
 CXXFLAGS+=' -ffat-lto-objects
@@ -56,7 +56,7 @@ cmake -B build -S AyuGramDesktop -G Ninja \
 cmake --build build
 
 cmake --install build
-
+```
 ### Remarks for Windows
 
 Make sure you have these components installed with VS Build Tools:
