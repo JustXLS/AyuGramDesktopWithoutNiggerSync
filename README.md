@@ -42,9 +42,11 @@ Optional Depends ```"webkit2gtk: embedded browser features"
 Build
 ```
 git clone https://github.com/JustXLS/AyuGramDesktopWithoutNiggerSync.git
-
+```
+```
 CXXFLAGS+=' -ffat-lto-objects
-
+```
+```
 cmake -B build -S AyuGramDesktop -G Ninja \
         -DCMAKE_VERBOSE_MAKEFILE=ON \
         -DCMAKE_INSTALL_PREFIX="/usr/local" \
@@ -52,9 +54,11 @@ cmake -B build -S AyuGramDesktop -G Ninja \
         -DTDESKTOP_API_ID=2040 \
         -DTDESKTOP_API_HASH=b18441a1ff607e10a989891a5462e627 \
         -DDESKTOP_APP_DISABLE_AUTOUPDATE=True
-        
+```
+```        
 cmake --build build
-
+```
+```
 cmake --install build
 ```
 ### Remarks for Windows
