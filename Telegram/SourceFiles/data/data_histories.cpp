@@ -30,7 +30,7 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 // AyuGram includes
 #include "ayu/ayu_settings.h"
 #include "ayu/ayu_state.h"
-#include "ayu/sync/ayu_sync_controller.h"
+//#include "ayu/sync/ayu_sync_controller.h"
 
 
 namespace Data {
@@ -246,7 +246,7 @@ void Histories::readInboxTill(
 
 	Core::App().notifications().clearIncomingFromHistory(history);
 
-	AyuSync::getInstance().syncRead(history, tillId);
+	//AyuSync::getInstance().syncRead(history, tillId);
 
 	// AyuGram sendReadMessages
 	const auto settings = &AyuSettings::getInstance();
