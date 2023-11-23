@@ -52,6 +52,15 @@ Build
 git clone https://github.com/JustXLS/AyuGramDesktopWithoutNiggerSync.git
 ```
 ```
+cd AyuGramDesktopWithoutNiggerSync
+```
+```
+git submodule update --init --recursive
+```
+```
+cd ..
+```
+```
 CXXFLAGS+=' -ffat-lto-objects'
 ```
 ```
