@@ -11,7 +11,6 @@
 - Streamer mode
 - Material Design switches
 - Local Telegram Premium
-- Sync read states and message history with AyuSync *(TBA)*
 
 <img src='.github/demos/demo1.png' width='250'> <img src='.github/demos/demo2.png' width='250'> <img src='.github/demos/demo3.png' width='250'>
 
