@@ -6,7 +6,7 @@
 // Copyright @Radolyn, 2023
 #include "settings_ayu.h"
 #include "ayu/ayu_settings.h"
-#include "ayu/sync/ayu_sync_controller.h"
+//#include "ayu/sync/ayu_sync_controller.h"
 #include "ayu/ui/boxes/edit_deleted_mark.h"
 #include "ayu/ui/boxes/edit_edited_mark.h"
 #include "ayu/ui/boxes/font_selector.h"
@@ -1080,7 +1080,7 @@ void Ayu::SetupFonts(not_null<Ui::VerticalLayout *> container, not_null<Window::
 
 }
 
-void Ayu::SetupAyuSync(not_null<Ui::VerticalLayout *> container)
+/*void Ayu::SetupAyuSync(not_null<Ui::VerticalLayout *> container)
 {
 	AddSubsectionTitle(container, tr::ayu_AyuSyncHeader());
 
@@ -1095,7 +1095,7 @@ void Ayu::SetupAyuSync(not_null<Ui::VerticalLayout *> container)
 						   auto controller = &AyuSync::getInstance();
 						   controller->initializeAgent();
 					   });
-}
+}*/
 
 void Ayu::SetupSendConfirmations(not_null<Ui::VerticalLayout *> container)
 {
@@ -1181,7 +1181,7 @@ void Ayu::SetupAyuGramSettings(not_null<Ui::VerticalLayout *> container,
 	// todo: compilation flag
 	if constexpr (false) {
 		AddSkip(container);
-		SetupAyuSync(container);
+	//	SetupAyuSync(container);
 		AddSkip(container);
 
 		AddDivider(container);
