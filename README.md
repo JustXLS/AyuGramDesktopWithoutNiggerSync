@@ -47,7 +47,7 @@ git clone https://github.com/JustXLS/AyuGramDesktopWithoutNiggerSync.git
 CXXFLAGS+=' -ffat-lto-objects'
 ```
 ```
-cmake -B build -S AyuGramDesktop -G Ninja \
+cmake -B build -S AyuGramDesktopWithoutNiggerSync -G Ninja \
         -DCMAKE_VERBOSE_MAKEFILE=ON \
         -DCMAKE_INSTALL_PREFIX="/usr/local" \
         -DCMAKE_BUILD_TYPE=Release \
