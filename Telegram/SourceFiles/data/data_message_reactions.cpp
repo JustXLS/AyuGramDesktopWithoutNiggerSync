@@ -31,7 +31,8 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 #include "styles/style_chat.h"
 
 // AyuGram includes
-#include "ayu/ayu_state.h"
+#include "ayu/ayu_settings.h"
+#include "ayu/utils/telegram_helpers.h"
 
 
 namespace Data {
@@ -185,6 +186,15 @@ PossibleItemReactionsRef LookupPossibleReactions(
 			}
 			return true;
 		});
+		if (allowed.type == AllowedReactionsType::Some) {
+			for (const auto &id : allowed.some) {
+				if (!added.contains(id)) {
+					if (const auto temp = reactions->lookupTemporary(id)) {
+						result.recent.push_back(temp);
+					}
+				}
+			}
+		}
 		result.customAllowed = (allowed.type == AllowedReactionsType::All)
 			&& premiumPossible;
 	}
@@ -829,8 +839,7 @@ void Reactions::send(not_null<HistoryItem*> item, bool addToRecent) {
 		const auto settings = &AyuSettings::getInstance();
 		if (!settings->sendReadMessages && settings->markReadAfterReaction && item)
 		{
-			AyuState::setAllowSendReadPacket(true);
-			item->history()->session().data().histories().readInboxOnNewMessage(item);
+			readHistory(item);
 		}
 	}).fail([=](const MTP::Error &error) {
 		_sentRequests.remove(id);

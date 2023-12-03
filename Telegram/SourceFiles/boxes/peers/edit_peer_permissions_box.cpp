@@ -611,7 +611,7 @@ template <typename Flags>
 
 				return checkView;
 			} else {
-				const auto button = Settings::AddButton(
+				const auto button = Settings::AddButtonWithIcon(
 					verticalLayout,
 					rpl::single(entry.label),
 					st,

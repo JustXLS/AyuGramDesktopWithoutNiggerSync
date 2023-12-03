@@ -44,6 +44,10 @@ https://github.com/telegramdesktop/tdesktop/blob/master/LEGAL
 #include "styles/style_info.h"
 #include "styles/style_boxes.h"
 
+// AyuGram includes
+#include "ayu/ayu_settings.h"
+
+
 namespace Info {
 namespace Profile {
 
@@ -155,6 +159,8 @@ object_ptr<Ui::RpWidget> InnerWidget::setupSharedMedia(
 	using namespace rpl::mappers;
 	using MediaType = Media::Type;
 
+	const auto settings = &AyuSettings::getInstance();
+
 	auto content = object_ptr<Ui::VerticalLayout>(parent);
 	auto tracker = Ui::MultiSlideTracker();
 	auto addMediaButton = [&](
@@ -186,6 +192,23 @@ object_ptr<Ui::RpWidget> InnerWidget::setupSharedMedia(
 			icon,
 			st::infoSharedMediaButtonIconPosition);
 	};
+	const auto addSimilarChannelsButton = [&](
+			not_null<ChannelData*> channel,
+			const style::icon &icon) {
+		if (settings->hideSimilarChannels) {
+			return;
+		}
+
+		auto result = Media::AddSimilarChannelsButton(
+			content,
+			_controller,
+			channel,
+			tracker);
+		object_ptr<Profile::FloatingIcon>(
+			result,
+			icon,
+			st::infoSharedMediaButtonIconPosition);
+	};
 	auto addStoriesButton = [&](
 			not_null<PeerData*> peer,
 			const style::icon &icon) {
@@ -211,8 +234,10 @@ object_ptr<Ui::RpWidget> InnerWidget::setupSharedMedia(
 	addMediaButton(MediaType::Link, st::infoIconMediaLink);
 	addMediaButton(MediaType::RoundVoiceFile, st::infoIconMediaVoice);
 	addMediaButton(MediaType::GIF, st::infoIconMediaGif);
-	if (auto user = _peer->asUser()) {
+	if (const auto user = _peer->asUser()) {
 		addCommonGroupsButton(user, st::infoIconMediaGroup);
+	} else if (const auto channel = _peer->asChannel()) {
+		addSimilarChannelsButton(channel, st::infoIconMediaChannel);
 	}
 
 	auto result = object_ptr<Ui::SlideWrap<Ui::VerticalLayout>>(
